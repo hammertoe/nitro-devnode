@@ -67,4 +67,4 @@ The script will:
 
 ## Note on `--dev` mode
 
-The script starts the Nitro dev node in `--dev` mode, which does not persist chain data. Each time you restart the node, the chain state resets. This is suitable for testing and development purposes, but for persistent chain data, consider using a full node setup instead of `--dev`.
+The script starts the Nitro node in `--dev` mode, which does not persist chain data. Each time you restart the node, the chain state resets. This is suitable for testing and development purposes, but for persistent chain data, consider using a full node setup instead of `--dev`.
