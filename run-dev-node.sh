@@ -6,7 +6,13 @@ docker run --rm --name nitro-dev -p 8547:8547 offchainlabs/nitro-node:v3.2.1-d81
 
 # Wait for the node to initialize
 echo "Waiting for the Nitro node to initialize..."
-sleep 15  # Adjust the sleep time if necessary based on node startup time
+
+until [[ "$(curl -s -X POST -H "Content-Type: application/json" \
+  --data '{"jsonrpc":"2.0","method":"net_version","params":[],"id":1}' \
+  http://127.0.0.1:8547)" == *"result"* ]]; do
+    sleep 0.1
+done
+
 
 # Check if node is running
 curl_output=$(curl -s -X POST -H "Content-Type: application/json" \
@@ -21,7 +27,7 @@ else
 fi
 
 # Make the caller a chain owner
-echo "Becoming a chain owner..."
+echo "Setting chain owner to pre-funded dev account..."
 cast send 0x00000000000000000000000000000000000000FF "becomeChainOwner()" \
   --private-key 0xb6b15c8cb491557369f3c7d2c287b053eb229daa9c22138887752191c9520659 \
   --rpc-url http://127.0.0.1:8547
