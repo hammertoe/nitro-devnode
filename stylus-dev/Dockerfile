@@ -1,4 +1,5 @@
-FROM offchainlabs/nitro-node:v3.2.1-d81324d AS nitro-node-stylus-dev
+ARG NITRO_NODE_VERSION
+FROM offchainlabs/nitro-node:$NITRO_NODE_VERSION AS nitro-node-stylus-dev
 USER root
 RUN apt-get update && \
     apt-get install -y git python3 make g++ curl pkg-config libssl-dev
