@@ -6,6 +6,7 @@ env:
   REGISTRY: ghcr.io
   NAMESPACE: ${{ github.repository_owner }}
   IMAGE_NAME: nitro-stylus-devnet
+  NITRO_NODE_VERSION: v3.2.1-d81324d
 
 jobs:
   build-nitro-docker-image:
