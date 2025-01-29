@@ -57,7 +57,7 @@ jobs:
         id: build
         uses: docker/build-push-action@v4
         env:
-          NITRO_NODE_VERSION: env.NITRO_NODE_VERSION
+          NITRO_NODE_VERSION: ${{ env.NITRO_NODE_VERSION }}
         with:
           context: .
           platforms: linux/amd64, linux/arm64
