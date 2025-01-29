@@ -62,6 +62,6 @@ jobs:
           build-args: |
             GOFLAGS=-tags=2k
           push: true
-          tags: ${{ steps.meta_stylus_dev.outputs.tags }}
+          tags: ${{ steps.meta_nitro_dev.outputs.tags }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
