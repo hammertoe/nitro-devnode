@@ -1,5 +1,7 @@
 name: Build an Arbitrum Stylus Dev Docker Image
 
+on: workflow_dispatch
+
 env:
   REGISTRY: ghcr.io
   NAMESPACE: ${{ github.repository_owner }}
