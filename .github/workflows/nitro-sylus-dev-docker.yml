@@ -56,14 +56,13 @@ jobs:
       - name: Build and push
         id: build
         uses: docker/build-push-action@v4
-        env:
-          NITRO_NODE_VERSION: ${{ env.NITRO_NODE_VERSION }}
         with:
           context: .
           platforms: linux/amd64, linux/arm64
           file: stylus-dev/Dockerfile
           build-args: |
             GOFLAGS=-tags=2k
+            NITRO_NODE_VERSION=${{ env.NITRO_NODE_VERSION }}
           push: true
           tags: ${{ steps.meta_nitro_dev.outputs.tags }}
           cache-from: type=gha
